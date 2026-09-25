@@ -6,7 +6,7 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checout@v4.1.1
+      - uses: actions/checkout@v4.1.1
       - name: RUn on my own container action
         uses: ./
         with:
