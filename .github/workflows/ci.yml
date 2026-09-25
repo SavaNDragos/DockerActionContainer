@@ -14,8 +14,14 @@ jobs:
           who-to-greet: '@sunny'
       - name: Output the action result
         run: echo "The answer is ${{ steps.my-action.outputs.answer }}"
+      - name: Play with setting values
+        id: step_one
+        run: |
+          echo "action_state=yellow" >> "$GITHUB_ENV"
+      - run: |
+          echo "${{ env.action_state }}" 
       - name: Test the container
-        if: ${{ steps.my-action.outputs.answer != 41 }}
+        if: ${{ steps.my-action.outputs.answer != 42 }}
         run: | 
           echo "::error file=entrypoint.sh,line=4,title=Error in container::The answer was not expected"
           exit 1
