@@ -1,0 +1,13 @@
+name: Action CI
+
+on: [push]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: action/checout@v4.1.1
+      - name: RUn on my own container action
+        uses: ./
+        with:
+          who-to-greet: '@sunny'
